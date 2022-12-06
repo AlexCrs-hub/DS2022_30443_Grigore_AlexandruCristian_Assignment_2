@@ -21,9 +21,9 @@ export class AppController {
     const channel = context.getChannelRef();
     const orginalMessage = context.getMessage();
     channel.ack(orginalMessage);
-    const hour = new Date(data.timestamp).getMinutes();
+    const hour = new Date(data.timestamp).getHours();
     const device = await this.deviceService.findById(data.id);
-    if(this.currentHour.getMinutes() === hour){
+    if(this.currentHour.getHours() === hour){
       this.currentConsumption += parseFloat(data.consumption);
       if(this.currentConsumption > device.maxHrEnergyConsumption){
         AppController.exceededMax = true;
