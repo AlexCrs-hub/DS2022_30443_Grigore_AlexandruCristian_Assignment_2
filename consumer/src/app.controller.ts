@@ -25,6 +25,7 @@ export class AppController {
     const device = await this.deviceService.findById(data.id);
     if(this.currentHour.getHours() === hour){
       this.currentConsumption += parseFloat(data.consumption);
+      console.log(this.currentConsumption);
       if(this.currentConsumption > device.maxHrEnergyConsumption){
         AppController.exceededMax = true;
       }

@@ -4,7 +4,7 @@ import { AppController } from './app.controller';
 
 @WebSocketGateway({
   cors: {
-    origin:['http://localhost:3001']
+    origin:['http://localhost']
   },
 })
 export class AppGateway {
